@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>Welcome to Airbnb</h1>
+  <div class="row">
+    <% @flats.each do |flat| %>
+      <div class="col-md-4">
+        <div class="card">
+          <%= image_tag "https://picsum.photos/200/300", class: "img-fluid" %>
+          <h3><%= flat["name"] %></h3>
+          <p><%= flat["description"] %></p>
+          <p><%= flat["price_per_night"] %> <%= flat["number_of_guests"] %></p>
+          <%=  %>
+        </div>
+        <div class="card-footer">
+          <%= link_to "More", flat_path(flat["id"]) %>
+          <%= link_to "Edit", edit_flat_path(flat["id"]) %>
+          <%= link_to "Delete", flat_path(flat["id"]), method: :delete, data: { confirm: "Are your sure?"} %>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>
